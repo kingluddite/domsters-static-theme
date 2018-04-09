@@ -7,7 +7,7 @@
 </head>
 <body <?php body_class(); ?>>
  <div id="header">
-     <img src="images/logo.gif" alt="Jay Skript and the Domsters" />
+     <img src="<?php bloginfo('template_directory'); ?>/src/images/logo.gif" alt="Jay Skript and the Domsters" />
    </div>
    <?php
    $defaults = array(

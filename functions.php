@@ -14,11 +14,11 @@ function create_widget( $name, $id, $description ) {
     ));
 }
 
-create_widget( 'Front Page Left', 'front-left', 'Displays on the left of the hompage');
-create_widget( 'Front Page Center', 'front-center', 'Displays on the center of the hompage');
-create_widget( 'Front Page Right', 'front-right', 'Displays on the right of the hompage');
-// sidebar
-create_widget( 'Page Sidebar', 'page', 'Displays on side of pages with sidebar');
+// create_widget( 'Front Page Left', 'front-left', 'Displays on the left of the hompage');
+// create_widget( 'Front Page Center', 'front-center', 'Displays on the center of the hompage');
+// create_widget( 'Front Page Right', 'front-right', 'Displays on the right of the hompage');
+// // sidebar
+// create_widget( 'Page Sidebar', 'page', 'Displays on side of pages with sidebar');
 
 /*=============================
 =            Google Fonts            =
@@ -41,17 +41,52 @@ function domsters_static_register_menu() {
 
 add_action('init', 'domsters_static_register_menu');
 
-// load CSS
+/*=============================
+=            CSS           =
+=============================*/
 function theme_styles() {
-    wp_enqueue_style( 'custom_css', get_template_directory_uri() . '/css/basic.css' );
+    wp_enqueue_style( 'custom_css', get_template_directory_uri() . '/src/css/basic.css' );
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
 
-// load JavaScript
+/*=============================
+=            JavaScript           =
+=============================*/
 function theme_js() {
-  wp_enqueue_script( 'global_js', get_template_directory_uri() . '/js/global.js', '', '', true );
-    wp_enqueue_script( 'home_js', get_template_directory_uri() . '/js/home.js', '', '', true );
+  $wsd_theme_path = array( 'template_url' => get_bloginfo('template_url') );
+  wp_enqueue_script( 'global_js', get_template_directory_uri() . '/dist/js/app.js', '', '', true );
+      // wp_enqueue_script( 'home_js', get_template_directory_uri() . '/src/js/home.js', '', '', true );
+  wp_localize_script( 'global_js', 'wsd_global', $wsd_theme_path );
+  // wp_enqueue_script( 'global_js', get_template_directory_uri() . '/src/js/global.js', '', '', true );
+  //   // page 4 (home) and 14 (photos) need to point to the theme URL because their
+  //   // scripts contain paths to images
+  //   if ( is_page( '4') || is_page( '14') ) {
+      // $wsd_theme_path = array( 'template_url' => get_bloginfo('template_url') );
+  //   }
+  //   // only use home.js if we are on the home page
+    // if ( is_page( '4' ) ) {
+      // wp_enqueue_script( 'home_js', get_template_directory_uri() . '/src/js/home.js', '', '', true );
+      // wp_localize_script( 'home_js', 'wsd_home', $wsd_theme_path );
+    // }
+  //   // only use photos.js if we are on the photos page
+  //   if ( is_page( '14' ) ) {
+  //     wp_enqueue_script( 'photos_js', get_template_directory_uri() . '/src/js/photos.js', '', '', true );
+  //     wp_localize_script( 'photos_js', 'wsd_photos', $wsd_theme_path );
+  //   }
+  //   // only use about.js if we are on the about page
+  //   if ( is_page( '7' ) ) {
+  //     wp_enqueue_script( 'about_js', get_template_directory_uri() . '/src/js/about.js', '', '', true );
+  //   }
+  //   // only use live.js if we are on the live page
+  //   if ( is_page( '20' ) ) {
+  //     wp_enqueue_script( 'live_js', get_template_directory_uri() . '/src/js/live.js', '', '', true );
+  //   }
+
+  //   // only use contact.js if we are on the contact page
+  //   if ( is_page( '20' ) ) {
+  //     wp_enqueue_script( 'contact_js', get_template_directory_uri() . '/src/js/contact.js', '', '', true );
+  //   }
 }
 add_action( 'wp_enqueue_scripts', 'theme_js' );
 
