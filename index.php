@@ -14,6 +14,5 @@
                <p>Looks like we have no content for this page?</p>
 
              <?php endif; ?>
-             <?php get_sidebar(); ?>
    </div>
 <?php get_footer(); ?>
