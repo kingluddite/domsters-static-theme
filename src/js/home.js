@@ -53,14 +53,14 @@ export function prepareSlideshow() {
   const slideshow = document.createElement('div');
   slideshow.setAttribute('id', 'slideshow');
   const frame = document.createElement('img');
-  frame.setAttribute('src', '../src/images/frame.gif');
+  // frame.setAttribute('src', '../src/images/frame.gif');
   // Here we created wsd_home.template_url in WordPress and are using it here
   // frame.setAttribute('src', `${wsd_global.template_url}/dist/images/${framePath}`); // eslint-disable-line no-undef
   frame.setAttribute('alt', '');
   frame.setAttribute('id', 'frame');
   slideshow.appendChild(frame);
   const preview = document.createElement('img');
-  slideshow.setAttribute('src', '../src/images/slideshow.gif');
+  // slideshow.setAttribute('src', '../src/images/slideshow.gif');
   // preview.setAttribute('src', `${wsd_global.template_url}/dist/images/${slideshowPath}`); // eslint-disable-line no-undef
   // preview.setAttribute('src', '../images/slideshow.gif');
   // preview.setAttribute('src', slideshowPath);

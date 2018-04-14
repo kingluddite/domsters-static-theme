@@ -6,9 +6,6 @@ a:link {
   color: #445;
   background-color: #eb6;
 }
-.current-menu-item > a {
-    background: #eb6 !important;
-}
 a:visited {
   color: #345;
   background-color: #eb6;

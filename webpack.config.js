@@ -6,6 +6,8 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 // const buildPath = '/wp-content/themes/domsters-static-theme';
 
 const config = {
@@ -76,7 +78,7 @@ const config = {
   plugins: [
     new ExtractTextPlugin('/css/[name].css'),
     new BrowserSyncPlugin({
-      proxy: 'webpackhmr.local',
+      proxy: 'local.domsters.com',
       port: 3000,
       files: ['**/*.php'],
       ghostMode: {

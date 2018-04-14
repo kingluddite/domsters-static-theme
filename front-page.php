@@ -8,18 +8,6 @@
 
         <?php endwhile; endif; ?>
 
-         <div>
-             <?php if ( dynamic_sidebar( 'front-left' ) ); ?>
-         </div>
-
-         <div>
-           <?php if ( dynamic_sidebar( 'front-center' ) ); ?>
-        </div>
-
-         <div>
-           <?php if ( dynamic_sidebar( 'front-right' ) ); ?>
-         </div>
-
    </div>
    <!-- END #content -->
 <?php get_footer(); ?>
