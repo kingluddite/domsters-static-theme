@@ -10,6 +10,8 @@ export function addLoadEvent(func) {
   }
 }
 
+console.log('aaa');
+
 export function insertAfter(newElement, targetElement) {
   const parent = targetElement.parentNode;
   if (parent.lastChild === targetElement) {

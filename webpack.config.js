@@ -8,11 +8,20 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+/* eslint-disable global-require */
+// if (process.env.NODE_ENV === 'test') {
+//   require('dotenv').config({ path: '.env.test' });
+// } else if (process.env.NODE_ENV === 'development') {
+//   require('dotenv').config({ path: '.env.development' });
+// }
+/* eslint-enable global-require */
+
+// const isProduction = env === 'production';
 // const buildPath = '/wp-content/themes/domsters-static-theme';
 
 const config = {
-  mode: 'development',
-  devtool: 'cheap-module-source-map',
+  // mode: 'development',
+  // devtool: isProduction ? 'eval-cheap-module-source-map' : 'source-map',
 
   entry: {
     app: './src/js/app.js',
