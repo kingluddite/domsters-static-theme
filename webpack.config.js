@@ -61,14 +61,13 @@ const config = {
             loader: 'url-loader',
             options: {
               limit: 8000, // Convert images < 8kb to base64 strings
-              name: 'images/[hash]-[name].[ext]',
+              name: 'images/one/[hash]-[name].[ext]',
             },
           },
           {
             loader: 'file-loader',
             options: {
-              name: '[path][name].[ext]',
-              publicPath: '/dist/',
+              name: '/images/[name].[ext]',
             },
           },
         ],
