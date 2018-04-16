@@ -1,0 +1,81 @@
+body {
+  color: $orange;
+  background-color: $dark-blue;
+}
+a:link {
+  color: $dark-blue;
+  background-color: $light-orange;
+}
+a:visited {
+  color: $grey;
+  background-color: $light-orange;
+}
+a:hover {
+  color: $light-grey;
+  background-color: $orange;
+}
+a:active {
+  color: $silver;
+  background-color: $tan;
+}
+#header {
+  color: $tan;
+  background-color: $dark-blue;
+  border-color: $light-grey;
+}
+#navigation {
+  color: $dark-blue;
+  background-color: $silver;
+  border-color: $light-grey;
+}
+#content {
+  color: $dark-blue;
+  background-color: $tan;
+  border-color: $light-grey;
+}
+#navigation ul {
+  border-color: $grey;
+}
+#navigation a:link,#navigation a:visited {
+  color: $white;
+  background-color: transparent;
+  border-color: $grey;
+}
+#navigation a:hover {
+  color: $dark-blue;
+  background-color: $orange;
+}
+#navigation a:active {
+  color: $light-grey;
+  background-color: $orange;
+}
+#navigation a.here:link,
+#navigation a.here:visited,
+#navigation a.here:hover,
+#navigation a.here:active {
+  color: $white;
+  background-color: $turquoise;
+}
+#content img {
+  border-color: $sand;
+  outline-color: $tan;
+}
+#imagegallery a {
+  background-color: transparent;
+}
+th {
+  color: $tan;
+  background-color: $dark-blue;
+}
+tr td {
+  color: $dark-blue;
+  background-color: $orange;
+}
+tr.odd td {
+  color: $dark-blue;
+  background-color: $orange;
+}
+tr.highlight td {
+  color: $dark-blue;
+  background-color: $sand;
+}

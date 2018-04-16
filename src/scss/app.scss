@@ -1,3 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Karla|Raleway');
-@import 'normalize.css';
+@import '~normalize.css/normalize.css';
+@import 'base/variables';
 @import 'base/base';
+@import 'color';
+@import 'layout';
+@import 'typography';

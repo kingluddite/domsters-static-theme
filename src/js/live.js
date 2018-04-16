@@ -1,4 +1,5 @@
-function stripeTables() {
+import { addLoadEvent, addClass } from './global';
+export function stripeTables() {
   if (!document.getElementsByTagName) return false;
   const tables = document.getElementsByTagName('table');
   for (let i = 0; i < tables.length; i += 1) {
@@ -15,7 +16,7 @@ function stripeTables() {
   }
 }
 
-function highlightRows() {
+export function highlightRows() {
   if (!document.getElementsByTagName) return false;
   const rows = document.getElementsByTagName('tr');
   for (let i = 0; i < rows.length; i += 1) {
@@ -29,7 +30,7 @@ function highlightRows() {
   }
 }
 
-function displayAbbreviations() {
+export function displayAbbreviations() {
   if (!document.getElementsByTagName || !document.createElement || !document.createTextNode) return false;
   const abbreviations = document.getElementsByTagName('abbr');
   if (abbreviations.length < 1) return false;
@@ -42,24 +43,24 @@ function displayAbbreviations() {
     defs[key] = definition;
   }
   const dList = document.createElement('dl');
-  for (key in defs) {
-    const definition = defs[key];
-    const dTitle = document.createElement('dt');
-    const dTitleText = document.createTextNode(key);
-    dTitle.appendChild(dTitleText);
-    const dDesc = document.createElement('dd');
-    const dDescText = document.createTextNode(definition);
-    dDesc.appendChild(dDescText);
-    dList.appendChild(dTitle);
-    dList.appendChild(dDesc);
-  }
-  if (dList.childNodes.length < 1) return false;
-  const header = document.createElement('h3');
-  const headerText = document.createTextNode('Abbreviations');
-  header.appendChild(headerText);
-  const container = document.getElementById('content');
-  container.appendChild(header);
-  container.appendChild(dList);
+  // for (key in defs) {
+  //   const definition = defs[key];
+  //   const dTitle = document.createElement('dt');
+  //   const dTitleText = document.createTextNode(key);
+  //   dTitle.appendChild(dTitleText);
+  //   const dDesc = document.createElement('dd');
+  //   const dDescText = document.createTextNode(definition);
+  //   dDesc.appendChild(dDescText);
+  //   dList.appendChild(dTitle);
+  //   dList.appendChild(dDesc);
+  // }
+  // if (dList.childNodes.length < 1) return false;
+  // const header = document.createElement('h3');
+  // const headerText = document.createTextNode('Abbreviations');
+  // header.appendChild(headerText);
+  // const container = document.getElementById('content');
+  // container.appendChild(header);
+  // container.appendChild(dList);
 }
 
 addLoadEvent(stripeTables);

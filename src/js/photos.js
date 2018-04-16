@@ -1,3 +1,5 @@
+import { addLoadEvent, insertAfter } from './global';
+
 function showPic(whichpic) {
   let text;
   if (!document.getElementById('placeholder')) return true;
@@ -25,7 +27,7 @@ function preparePlaceholder() {
   const placeholder = document.createElement('img');
   placeholder.setAttribute('id', 'placeholder');
   // Here we created wsd_home.template_url in WordPress and are using it here
-  placeholder.setAttribute('src', wsd_photos.template_url + '/images/placeholder.gif'); // eslint-disable-line no-undef
+  // placeholder.setAttribute('src', wsd_photos.template_url + '/images/placeholder.gif'); // eslint-disable-line no-undef
   placeholder.setAttribute('alt', 'my image gallery');
   const description = document.createElement('p');
   description.setAttribute('id', 'description');

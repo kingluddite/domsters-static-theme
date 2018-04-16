@@ -1,10 +1,14 @@
-// import '../scss/app.scss';
+import '../scss/app.scss';
+import '../../style.css';
 // import '../images/background.gif';
 // import { hello } from './about.js';
 
 import '../js/global';
-import '../js/about';
 import '../js/home';
+import '../js/about';
+import '../js/photos';
+import '../js/live';
+import '../js/contact';
 
 // addLoadEvent(highlightPage);
 // addLoadEvent(prepareInternalnav);
