@@ -1,4 +1,4 @@
-import { addLoadEvent, addClass } from './global';
+import { addLoadEvent } from './global';
 export function stripeTables() {
   if (!document.getElementsByTagName) return false;
   const tables = document.getElementsByTagName('table');
@@ -7,7 +7,8 @@ export function stripeTables() {
     const rows = tables[i].getElementsByTagName('tr');
     for (let j = 0; j < rows.length; j += 1) {
       if (odd === true) {
-        addClass(rows[j], 'odd');
+        rows[j].classList.add('odd');
+        // addClass(rows[j], 'odd');
         odd = false;
       } else {
         odd = true;
@@ -22,7 +23,8 @@ export function highlightRows() {
   for (let i = 0; i < rows.length; i += 1) {
     rows[i].oldClassName = rows[i].className;
     rows[i].onmouseover = function() {
-      addClass(this, 'highlight');
+      this.classList.add('highlight');
+      // addClass(this, 'highlight');
     };
     rows[i].onmouseout = function() {
       this.className = this.oldClassName;

@@ -1,6 +1,6 @@
 import '../scss/app.scss';
 import '../../style.css';
-// import '../images/background.gif';
+import '../images/logo.gif';
 // import { hello } from './about.js';
 
 import '../js/global';

@@ -7,7 +7,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
+const buildPath = '/wp-content/themes/domsters-static-theme/dist/';
 /* eslint-disable global-require */
 // if (process.env.NODE_ENV === 'test') {
 //   require('dotenv').config({ path: '.env.test' });
@@ -42,17 +42,17 @@ const config = {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: true,
+                // sourceMap: true,
               },
             },
             {
               loader: 'postcss-loader',
-              options: { sourceMap: true },
+              // options: { sourceMap: true },
             },
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: true,
+                // sourceMap: true,
               },
             },
           ],
@@ -66,17 +66,17 @@ const config = {
       {
         test: /\.(png|jp(e*)g|svg|gif)$/,
         use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8000, // Convert images < 8kb to base64 strings
-              name: 'images/one/[hash]-[name].[ext]',
-            },
-          },
+          // {
+          //   loader: 'url-loader',
+          //   options: {
+          //     limit: 8192, // Convert images < 8kb to base64 strings
+          //   },
+          // },
           {
             loader: 'file-loader',
             options: {
-              name: '/images/[name].[ext]',
+              name: '[name].[ext]',
+              publicPath: buildPath
             },
           },
         ],
