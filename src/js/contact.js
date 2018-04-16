@@ -1,4 +1,5 @@
-function focusLabels() {
+import { addLoadEvent } from './global';
+export function focusLabels() {
   if (!document.getElementsByTagName) return false;
   const labels = document.getElementsByTagName('label');
   for (let i = 0; i < labels.length; i += 1) {
@@ -12,7 +13,7 @@ function focusLabels() {
   }
 }
 
-function resetFields(whichform) {
+export function resetFields(whichform) {
   for (let i = 0; i < whichform.elements.length; i += 1) {
     const element = whichform.elements[i];
     if (element.type === 'submit') i += 1;
@@ -30,21 +31,21 @@ function resetFields(whichform) {
   }
 }
 
-function isFilled(field) {
+export function isFilled(field) {
   if (field.value.length < 1 || field.value === field.defaultValue) {
     return false;
   }
   return true;
 }
 
-function isEmail(field) {
+export function isEmail(field) {
   if (field.value.indexOf('@') === -1 || field.value.indexOf('.') === -1) {
     return false;
   }
   return true;
 }
 
-function validateForm(whichform) {
+export function validateForm(whichform) {
   for (let i = 0; i < whichform.elements.length; i += 1) {
     const element = whichform.elements[i];
     if (element.className.indexOf('required') !== -1) {
@@ -63,7 +64,7 @@ function validateForm(whichform) {
   return true;
 }
 
-function prepareForms() {
+export function prepareForms() {
   for (let i = 0; i < document.forms.length; i += 1) {
     const thisform = document.forms[i];
     resetFields(thisform);

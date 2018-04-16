@@ -45,7 +45,7 @@ add_action('init', 'domsters_static_register_menu');
 =            CSS           =
 =============================*/
 function theme_styles() {
-    wp_enqueue_style( 'custom_css', get_template_directory_uri() . '/src/css/basic.css' );
+    wp_enqueue_style( 'custom_css', get_template_directory_uri() . '/dist/css/app.css');
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
