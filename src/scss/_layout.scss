@@ -73,6 +73,9 @@ body {
   position: relative;
   overflow: hidden;
 }
+#slideshow img {
+  max-width: none;
+}
 img#frame {
   position: absolute;
   top: 0;

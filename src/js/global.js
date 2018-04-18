@@ -1,4 +1,5 @@
 export function addLoadEvent(func) {
+  console.log('yo');
   const oldonload = window.onload;
   if (typeof window.onload !== 'function') {
     window.onload = func;
@@ -55,7 +56,6 @@ function highlightPage() {
     const linkurl = links[i].getAttribute("href");
     if (currenturl.indexOf(linkurl) != -1 && isHomePage) {
       links[i].className = "here";
-      console.log('home');
       const linktext = links[i].lastChild.nodeValue.toLowerCase();
       document.body.setAttribute("id",linktext);
     } else if (currenturl.indexOf(linkurl) != -1 && isHomePage === false) {

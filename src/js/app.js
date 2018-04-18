@@ -1,3 +1,5 @@
+import _ from 'lodash';
+import Fake from 'faker';
 import '../scss/app.scss';
 import '../../style.css';
 import '../images/logo.gif';
