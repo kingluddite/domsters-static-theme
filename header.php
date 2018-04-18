@@ -14,10 +14,11 @@
      'theme_location'  => 'main-menu',
      'container'       => 'nav',
      'container_id'    => 'navigation',
+     'container_class'    => 'flex-nav',
      'echo'            => true,
      'fallback_cb'     => 'wp_page_menu',
-     'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-     'depth'           => 0
+     'items_wrap'      => my_nav_wrap(),
+     'depth'           => 0,
    );
    wp_nav_menu( $defaults );
   ?>

@@ -41,11 +41,29 @@ function domsters_static_register_menu() {
 
 add_action('init', 'domsters_static_register_menu');
 
+function my_nav_wrap() {
+  // default value of 'items_wrap' is <ul id="%1$s" class="%2$s">%3$s</ul>'
+
+  // open the <ul>, set 'menu_class' and 'menu_id' values
+  $wrap  = '<ul id="%1$s" class="%2$s">';
+
+  // get nav items as configured in /wp-admin/
+  $wrap .= '%3$s';
+
+  // the static link
+  $wrap .= '<li class="social"><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li><li class="social"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li><li class="social"><a href="https://github.com"><i class="fab fa-github"></i></a></li><li class="social"><a href="https://instagram"><i class="fab fa-instagram"></i></a></li>';
+
+  // close the <ul>
+  $wrap .= '</ul>';
+  // return the result
+  return $wrap;
+}
+
 /*=============================
 =            CSS           =
 =============================*/
 function theme_styles() {
-    wp_enqueue_style( 'custom_css', get_template_directory_uri() . '/dist/css/app.css');
+    wp_enqueue_style( 'custom_css', get_template_directory_uri() . '/dist/app.css', array(), date("H:i:s"));
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
@@ -54,10 +72,11 @@ add_action( 'wp_enqueue_scripts', 'theme_styles' );
 =            JavaScript           =
 =============================*/
 function theme_js() {
-  $wsd_theme_path = array( 'template_url' => get_bloginfo('template_url') );
-  wp_enqueue_script( 'global_js', get_template_directory_uri() . '/dist/js/app.js', '', '', true );
+      wp_enqueue_script( 'app_js', get_template_directory_uri() . '/dist/app.js', array(), date("H:i:s"), true );
+  // $wsd_theme_path = array( 'template_url' => get_bloginfo('template_url') );
+  // wp_enqueue_script( 'global_js', get_template_directory_uri() . '/dist/app.js', '', '', true );
       // wp_enqueue_script( 'home_js', get_template_directory_uri() . '/src/js/home.js', '', '', true );
-  wp_localize_script( 'global_js', 'wsd_global', $wsd_theme_path );
+  // wp_localize_script( 'global_js', 'wsd_global', $wsd_theme_path );
   // wp_enqueue_script( 'global_js', get_template_directory_uri() . '/src/js/global.js', '', '', true );
   //   // page 4 (home) and 14 (photos) need to point to the theme URL because their
   //   // scripts contain paths to images
