@@ -6,6 +6,7 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<div class="container">
  <div id="header">
      <img src="<?php bloginfo('template_directory'); ?>/dist/logo.gif" alt="Jay Skript and the Domsters" />
    </div>

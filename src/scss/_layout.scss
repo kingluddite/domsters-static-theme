@@ -1,11 +1,17 @@
 body {
-  margin: 1em 10%;
+  // margin: 1em 10%;
   background-image: url(../images/background.gif);
   background-attachment: fixed;
   background-position: top left;
   background-repeat: repeat-x;
-  max-width: 80em;
+  // max-width: 80em;
 }
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding:5rem;
+}
+
 #header {
   background-image: url('../images/guitarist.gif');
   background-repeat: no-repeat;
@@ -14,31 +20,59 @@ body {
   border-style: solid;
   border-bottom-width: 0;
 }
-#navigation {
-  background-image: url(../images/navbar.gif);
-  background-position: bottom left;
-  background-repeat: repeat-x;
-  border-width: .1em;
-  border-style: solid;
+
+.flex-nav {
+  background-image:
+    linear-gradient(
+      $silver, $light-grey 
+    ); 
+  border: $light-grey;
+  border-width: 1px;
   border-bottom-width: 0;
   border-top-width: 0;
-  padding-left: 10%;
+  color: $dark-blue;
 }
-#navigation ul {
-  width: 100%;
-  overflow: hidden;
-  border-left-width: .1em;
-  border-left-style: solid;
+
+.flex-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
-#navigation li {
-  display: inline;
+
+.flex-nav li {
+  flex:3;
 }
-#navigation li a {
-  display: block;
-  float: left;
-  padding: .5em 2em;
-  border-right: .1em solid;
+
+.flex-nav .social {
+  flex:1;
 }
+
+@media all and (max-width:1000px) {
+
+  .flex-nav ul {
+    flex-wrap: wrap;
+  }
+
+  .flex-nav li {
+    flex: 1 1 50%;
+    text-align: center;
+  }
+
+  .flex-nav .social {
+    flex: 1 1 25%;
+  }
+
+}
+
+@media all and (max-width: 500px) {
+  
+  .flex-nav li {
+    flex-basis: 100%;
+  }
+
+}
+
 #content {
   border-width: .1em;
   border-style: solid;
@@ -64,7 +98,7 @@ body {
   outline-width: .1em;
   outline-style: solid;
 }
-#imagegallery li {
+#imageGallery li {
   display: inline;
 }
 #slideshow {

@@ -1,3 +1,10 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -12,11 +19,6 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
-}
-
-body
-{
-  background-color: blue;
 }
 
 /*

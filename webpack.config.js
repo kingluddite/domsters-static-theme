@@ -3,56 +3,109 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-const debug = process.env.NODE_ENV !== "production";
+const isProd = process.env.NODE_ENV === 'production'; // true or false
+// const cssDev = ['style-loader', 'css-loader', 'sass-loader'];
+const cssProd = ExtractTextPlugin.extract({
+  fallback: 'style-loader',
+  // use: [
+  //   {
+  //     loader: 'css-loader',
+  //     options: {
+  //       url: false,
+  //       minimize: true,
+  //       sourceMap: true,
+  //     },
+  //   },
+  //   {
+  //     loader: 'sass-loader',
+  //     options: {
+  //       sourceMap: true,
+  //     },
+  //   },
+  // ],
+  use: [
+    {
+      loader: 'css-loader',
+      options: {
+        importLoaders: 1,
+        sourceMap: true,
+      },
+    },
+    {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: true,
+      },
+    },
+  ],
+});
+
+// const cssConfig = isProd ? cssProd : cssDev;
 const buildPath = '/wp-content/themes/domsters-static-theme/dist/';
-const VENDOR_LIBS = [
-  'faker', 'lodash'];
+// const VENDOR_LIBS = ['faker', 'lodash'];
 
 const config = {
-  // mode: 'development',
-  // devtool: isProduction ? 'eval-cheap-module-source-map' : 'source-map',
-  devtool: debug ? "inline-sourcemap" : null,
   entry: {
     app: './src/js/app.js',
-    vendor: VENDOR_LIBS
+    // vendor: VENDOR_LIBS,
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].[hash].js',
+    // chunkFilename: 'js/[name]s.[hash].js',
+    // filename: 'js/[name].[hash].js',
+    filename: '[name].js',
+    // sourceMapFilename: '[file].map',
     publicPath: '/dist/',
   },
-
-  optimization: {
-          minimize: false,
-          runtimeChunk: {
-              name: 'vendor'
-          },
-          splitChunks: {
-              cacheGroups: {
-                  default: false,
-                  commons: {
-                      test: /node_modules/,
-                      name: "vendor",
-                      chunks: "initial",
-                      minSize: 1
-                  }
-              }
-          }
-      },
+  devtool: 'eval',
+  mode: 'development',
+  // optimization: {
+  //   minimize: false,
+  //   runtimeChunk: {
+  //     name: 'vendor',
+  //   },
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       default: false,
+  //       commons: {
+  //         test: /node_modules/,
+  //         name: 'vendor',
+  //         chunks: 'initial',
+  //         minSize: 1,
+  //       },
+  //     },
+  //   },
+  // },
 
   module: {
     rules: [
       {
-        test: /\.(css|scss|sass)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader?cacheDirectory',
+        loader: 'babel-loader',
       },
       {
         test: /\.(png|jp(e*)g|svg|gif)$/,
@@ -66,56 +119,63 @@ const config = {
           {
             loader: 'file-loader',
             options: {
+              // name: '[path][hash:6].[ext]',
               name: '[name].[ext]',
-              publicPath: buildPath
+              publicPath: buildPath,
             },
+          },
+          {
+            loader: 'image-webpack-loader',
           },
         ],
       },
     ],
   },
   plugins: [
-    // new webpack.optimize.DedupePlugin(),
-    // new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.NamedModulesPlugin(),
     new ExtractTextPlugin({
-      filename: 'app.css',
-      disable: true,
-      allChunks: true
+      // filename: 'app.css',
+      // disable: !isProd,
+      filename: getPath => {
+        return getPath('[name].css').replace('css/js', 'css');
+      },
+      allChunks: true,
     }),
-    new webpack.NamedModulesPlugin(),
     new UglifyJSPlugin({
-          cache: false,
-          parallel: true,
-          sourceMap: false
-        }),
-    new OptimizeCssAssetsPlugin(),
+      cache: false,
+      parallel: true,
+      sourceMap: true,
+    }),
+    // new OptimizeCssAssetsPlugin(),
     new BrowserSyncPlugin({
       proxy: 'local.domsters.com',
       port: 3000,
       files: ['**/*.php'],
-      ghostMode: {
-        clicks: false,
-        location: false,
-        forms: false,
-        scroll: false,
-      },
-      injectChanges: true,
-      logFileChanges: true,
-      logLevel: 'debug',
-      logPrefix: 'webpack',
+      // ghostMode: {
+      //   clicks: false,
+      //   location: false,
+      //   forms: false,
+      //   scroll: false,
+      // },
+      // injectChanges: true,
+      // logFileChanges: true,
+      // logLevel: 'debug',
+      // logPrefix: 'webpack',
       notify: true,
       reloadDelay: 0,
     }),
-    new webpack.HotModuleReplacementPlugin({})
   ],
   watch: true,
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     hot: true,
-    compress: true,
+    // port: 9000,
+    // compress: true,
+    // historyApiFallback: true,
     stats: 'errors-only',
-    open: true
-  }
+    open: true,
+  },
 };
 
 module.exports = config;
