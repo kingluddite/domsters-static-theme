@@ -1,0 +1,34 @@
+
+#imageGallery a {
+  background-color: transparent;
+}
+
+#imageGallery li {
+  display: inline;
+}
+#slideshow {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+}
+#slideshow img {
+  max-width: none;
+}
+img#frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  border-width: 0;
+  outline-width: 0;
+}
+img#preview {
+  position: absolute;
+  border-width: 0;
+  outline-width: 0;
+}
+
+#imageGallery li {
+  list-style-type: none;
+}

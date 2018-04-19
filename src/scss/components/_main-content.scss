@@ -1,0 +1,28 @@
+.main-content {
+  color: $dark-blue;
+  background-color: $tan;
+  border-color: $light-grey;
+  border-width: .1em;
+  border-style: solid;
+  border-top-width: 0;
+  padding: 2em 10%;
+  line-height: 1.8em;
+  width:100%;
+  margin: 0 auto;
+  padding: 2rem;
+
+  &__img {
+    border-color: $sand;
+    outline-color: $tan;
+    border-width: .1em;
+    border-style: solid;
+    outline-width: .1em;
+    outline-style: solid;
+  }
+
+  &__p {
+    margin: 1em 0;
+  }
+
+}
+

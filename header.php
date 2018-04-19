@@ -7,9 +7,9 @@
 </head>
 <body <?php body_class(); ?>>
 <div class="container">
- <div id="header">
+ <header>
      <img src="<?php bloginfo('template_directory'); ?>/dist/logo.gif" alt="Jay Skript and the Domsters" />
-   </div>
+</header>
    <?php
    $defaults = array(
      'theme_location'  => 'main-menu',
@@ -23,4 +23,4 @@
    );
    wp_nav_menu( $defaults );
   ?>
-
+  <div class="main-content">

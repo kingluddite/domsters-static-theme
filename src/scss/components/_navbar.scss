@@ -1,0 +1,128 @@
+
+.flex-nav {
+  background-image:
+    linear-gradient(
+      $silver, $light-grey 
+    ); 
+  border: $light-grey;
+  border-width: 1px;
+  border-bottom-width: 0;
+  border-top-width: 0;
+  color: $dark-blue;
+  
+  a {
+    color: $dark-blue;
+    font-weight: bold;
+    padding: 1rem; 
+    &:link {
+      color: $dark-blue;
+    }
+    
+    &:visited {
+      background-color: $orange;
+    }
+
+    &:hover {
+      color: $dark-blue;
+      background-color: $orange;
+    }
+
+  }
+
+  .current-menu-item a {
+    color: $white;
+    background-color: $turquoise;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    @media all and (max-width:1000px) {
+      flex-wrap: wrap;
+    }
+
+  }
+
+  li {
+    flex:3;
+
+    @media all and (max-width:1000px) {
+      flex: 1 1 50%;
+      text-align: center;
+    }
+
+    @media all and (max-width: 500px) {
+      flex-basis: 100%;
+    }
+
+  }
+
+  &__social {
+    flex:1;
+
+    @media all and (max-width:1000px) {
+      flex: 1 1 25% !important;
+    }
+
+  }
+
+}
+
+// a:link {
+//   color: $dark-blue;
+//   background-color: $light-orange;
+// }
+// a:visited {
+//   color: $grey;
+//   background-color: $light-orange;
+// }
+// a:hover {
+//   color: $light-grey;
+//   background-color: $orange;
+// }
+// a:active {
+//   color: $silver;
+//   background-color: $tan;
+// }
+// #navigation {
+//   color: $dark-blue;
+//   background-color: $silver;
+//   border-color: $light-grey;
+// }
+
+
+// #navigation ul {
+//   border-color: $grey;
+// }
+// #navigation a:link,#navigation a:visited {
+//   color: $white;
+//   background-color: transparent;
+//   border-color: $grey;
+// }
+// #navigation a:hover {
+//   color: $dark-blue;
+//   background-color: $orange;
+// }
+// #navigation a:active {
+//   color: $light-grey;
+//   background-color: $orange;
+// }
+// #navigation a.here:link,
+// #navigation a.here:visited,
+// #navigation a.here:hover,
+// #navigation a.here:active {
+//   color: $white;
+//   background-color: $turquoise;
+// }
+
+
+// #navigation {
+//   font-family: "Lucida Grande","Helvetica","Arial",sans-serif;
+// }
+// #navigation a {
+//   text-decoration: none;
+//   font-weight: bold;
+// }

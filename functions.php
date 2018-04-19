@@ -23,12 +23,13 @@ function create_widget( $name, $id, $description ) {
 /*=============================
 =            Google Fonts            =
 =============================*/
-function tutsplus_add_google_fonts() {
-  wp_register_style( 'googleFonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300' );
-  wp_enqueue_style( 'googleFonts' );
-}
+// One way to add google fonts to your theme
+// function tutsplus_add_google_fonts() {
+//   wp_register_style( 'googleFonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300' );
+//   wp_enqueue_style( 'googleFonts' );
+// }
 
-add_action( 'wp_enqueue_scripts', 'tutsplus_add_google_fonts' );
+// add_action( 'wp_enqueue_scripts', 'tutsplus_add_google_fonts' );
 
 /*=============================
 =            Menus            =
@@ -51,7 +52,7 @@ function my_nav_wrap() {
   $wrap .= '%3$s';
 
   // the static link
-  $wrap .= '<li class="social"><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li><li class="social"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li><li class="social"><a href="https://github.com"><i class="fab fa-github"></i></a></li><li class="social"><a href="https://instagram"><i class="fab fa-instagram"></i></a></li>';
+  $wrap .= '<li class="flex-nav__social"><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li><li class="flex-nav__social"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li><li class="flex-nav__social"><a href="https://github.com"><i class="fab fa-github"></i></a></li><li class="flex-nav__social"><a href="https://instagram"><i class="fab fa-instagram"></i></a></li>';
 
   // close the <ul>
   $wrap .= '</ul>';
@@ -62,11 +63,11 @@ function my_nav_wrap() {
 /*=============================
 =            CSS           =
 =============================*/
-function theme_styles() {
-    wp_enqueue_style( 'custom_css', get_template_directory_uri() . '/dist/app.css', array(), date("H:i:s"));
-}
-
-add_action( 'wp_enqueue_scripts', 'theme_styles' );
+// function theme_styles() {
+//     wp_enqueue_style( 'custom_css', get_template_directory_uri() . '/dist/app.css', array(), date("H:i:s"));
+// }
+//
+// add_action( 'wp_enqueue_scripts', 'theme_styles' );
 
 /*=============================
 =            JavaScript           =

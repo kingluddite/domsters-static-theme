@@ -4,7 +4,6 @@
  */
 ?>
 <?php get_header(); ?>
-   <div id="content">
     <h1>THIS FULL WIDTH TEMPLATE</h1>
      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                <!-- tbs class for headers -->
@@ -20,5 +19,4 @@
 
              <?php endif; ?>
              <?php get_sidebar(); ?>
-   </div>
 <?php get_footer(); ?>

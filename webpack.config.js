@@ -135,11 +135,11 @@ const config = {
     new webpack.HotModuleReplacementPlugin(),
     // new webpack.NamedModulesPlugin(),
     new ExtractTextPlugin({
-      // filename: 'app.css',
+      filename: 'app.css',
       // disable: !isProd,
-      filename: getPath => {
-        return getPath('[name].css').replace('css/js', 'css');
-      },
+      // filename: getPath => {
+      //   return getPath('[name].css').replace('css/js', 'css');
+      // },
       allChunks: true,
     }),
     new UglifyJSPlugin({

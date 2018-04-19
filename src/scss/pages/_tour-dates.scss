@@ -1,0 +1,45 @@
+
+th {
+  color: $tan;
+  background-color: $dark-blue;
+}
+tr td {
+  color: $dark-blue;
+  background-color: $orange;
+}
+tr.odd td {
+  color: $dark-blue;
+  background-color: $orange;
+}
+tr.highlight td {
+  color: $dark-blue;
+  background-color: $sand;
+}
+
+
+dl {
+  overflow: hidden;
+}
+dt {
+  float: left;
+}
+dd {
+  float: left;
+}
+label {
+  display: block;
+}
+fieldset {
+  border: 0;
+}
+td {
+  padding: .5em 3em;
+}
+
+
+dt {
+  margin-right: 1em;
+}
+dd {
+  margin-right: 3em;
+}

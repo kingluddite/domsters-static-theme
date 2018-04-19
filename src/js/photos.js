@@ -1,7 +1,6 @@
 import { addLoadEvent, insertAfter } from './global';
 import placeholderImg from '../images/placeholder.gif';
 
-console.log('test');
 // export function showPic(whichpic) {
 //   let text;
 //   if (!document.getElementById('placeholder')) return true;
