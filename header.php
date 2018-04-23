@@ -25,7 +25,7 @@
    $defaults = array(
      'theme_location'  => 'main-menu',
      'container'       => 'nav',
-     'container_id'    => 'navigation',
+     'menu_class'    => 'menu-list',
      'container_class'    => 'flex-nav',
      'echo'            => true,
      'fallback_cb'     => 'wp_page_menu',

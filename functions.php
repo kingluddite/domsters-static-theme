@@ -50,7 +50,7 @@ function my_nav_wrap() {
   // default value of 'items_wrap' is <ul id="%1$s" class="%2$s">%3$s</ul>'
 
   // open the <ul>, set 'menu_class' and 'menu_id' values
-  $wrap  = '<ul id="%1$s" class="%2$s">';
+  $wrap  = '<button aria-expanded="false" aria-controls="menu-list"><span class="open"><i class="fas fa-bars"></i></span><span class="close"><i class="fas fa-window-close"></i> Menu</span></button><ul id="%1$s" class="%2$s">';
 
   // get nav items as configured in /wp-admin/
   $wrap .= '%3$s';

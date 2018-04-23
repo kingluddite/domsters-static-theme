@@ -53,4 +53,14 @@ function highlightPage() {
   }
 }
 
+const navButton = document.querySelector('button[aria-expanded]');
+
+export function toggleNav({ target }) {
+  console.log('yo');
+  const expanded = target.getAttribute('aria-expanded') === 'true' || false;
+  navButton.setAttribute('aria-expanded', !expanded);
+}
+
+navButton.addEventListener('click', toggleNav);
+
 addLoadEvent(highlightPage);
