@@ -1,0 +1,30 @@
+// wrapper for the site
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.top {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    'hero hero cta1'
+    'hero hero cta2'
+}
+
+@media (max-width: 700px) {
+  .top {
+    grid-template-areas:
+     "hero hero"
+     "cta1 cta2"
+  }
+}
+
+@media (max-width: 500px) {
+  .top {
+    grid-template-areas:
+    "hero"
+    "cta1"
+    "cta2"
+  }
+}

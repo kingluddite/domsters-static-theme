@@ -1,11 +1,3 @@
-
-#imageGallery a {
-  background-color: transparent;
-}
-
-#imageGallery li {
-  display: inline;
-}
 #slideshow {
   width: 150px;
   height: 150px;
@@ -27,8 +19,4 @@ img#preview {
   position: absolute;
   border-width: 0;
   outline-width: 0;
-}
-
-#imageGallery li {
-  list-style-type: none;
 }

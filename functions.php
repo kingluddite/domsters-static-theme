@@ -20,6 +20,10 @@ function create_widget( $name, $id, $description ) {
 // // sidebar
 // create_widget( 'Page Sidebar', 'page', 'Displays on side of pages with sidebar');
 
+// Remove all br and p tags from either the content or excerpt
+# remove_filter( 'the_content', 'wpautop' );
+# remove_filter( 'the_excerpt', 'wpautop' );
+
 /*=============================
 =            Google Fonts            =
 =============================*/
@@ -73,13 +77,19 @@ function my_nav_wrap() {
 =            JavaScript           =
 =============================*/
 function theme_js() {
-      wp_enqueue_script( 'app_js', get_template_directory_uri() . '/dist/app.js', array(), date("H:i:s"), true );
+    // localize the script
+    $dom_theme_path = array( 'template_url' => get_bloginfo('template_url') );
+wp_enqueue_script( 'dom_theme_path' );
+    wp_enqueue_script( 'app_js', get_template_directory_uri() . '/dist/app.js', array(), date("H:i:s"), true );
+    wp_localize_script( 'app_js', 'dom_theme_path', $dom_theme_path );
   // $wsd_theme_path = array( 'template_url' => get_bloginfo('template_url') );
   // wp_enqueue_script( 'global_js', get_template_directory_uri() . '/dist/app.js', '', '', true );
       // wp_enqueue_script( 'home_js', get_template_directory_uri() . '/src/js/home.js', '', '', true );
   // wp_localize_script( 'global_js', 'wsd_global', $wsd_theme_path );
   // wp_enqueue_script( 'global_js', get_template_directory_uri() . '/src/js/global.js', '', '', true );
   //   // page 4 (home) and 14 (photos) need to point to the theme URL because their
+        // $wp_enqueue_script( 'photo_js', get_template_directory_uri() .'/src/js/photos.js' );
+      // }
   //   // scripts contain paths to images
   //   if ( is_page( '4') || is_page( '14') ) {
       // $wsd_theme_path = array( 'template_url' => get_bloginfo('template_url') );

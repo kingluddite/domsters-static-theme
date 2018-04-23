@@ -1,0 +1,41 @@
+.hero {
+  // color: $tan;
+  // background-color: $dark-blue;
+  // border-color: $light-grey;
+  // background-image: url('../images/guitarist.gif');
+  // background-repeat: no-repeat;
+  // background-position: bottom right;
+  // border-width: .1em;
+  // border-style: solid;
+  // border-bottom-width: 0;
+  grid-area: hero;
+  min-height: 400px;
+  background: $white url('../images/guitarist.gif');
+  background-size: cover;
+  background-position: bottom right;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.hero > * {
+  background: $turquoise;
+  padding: 0.5rem;
+}
+
+// show images in header
+#about .hero {
+  background-image: url(../images/lineup.gif);
+}
+#photos .hero {
+  background-image: url(../images/basshead.gif);
+}
+#live .hero {
+  background-image: url(../images/bassist.gif);
+}
+#contact .hero {
+  background-image: url(../images/drummer.gif);
+}
+

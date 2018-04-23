@@ -1,0 +1,42 @@
+.gallery {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minimax(200px, 1fr));
+
+  &__image {
+    width: 100%;
+  }
+
+  &__heading {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grip-gap: 20px;
+    align-items: center;
+    
+    &:before, &:after {
+      display: block;
+      content: '';
+      height: 10px;
+      background: linear-gradient(to var(--direction, left), $turquoise,
+      transparent);
+    }
+
+    &:after {
+      --direction: right;
+    }
+  }
+  
+}
+//
+// #imageGallery a {
+//   background-color: transparent;
+// }
+//
+// #imageGallery li {
+//   display: inline;
+// }
+//
+// #imageGallery li {
+//   list-style-type: none;
+// }

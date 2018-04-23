@@ -2,9 +2,15 @@
 @import '~normalize.css/normalize.css';
 @import 'base/variables';
 @import 'base/base';
-@import './components/header';
+@import './components/wrapper';
+@import './components/hero';
+@import './components/cta';
 @import './components/navbar';
+@import './components/features';
 @import './components/main-content';
+// pages
+@import './pages/home';
+@import './pages/about';
 @import './pages/tour-dates.scss';
-@import './pages/photos';
+@import './pages/gallery';
 @import './pages/contact';

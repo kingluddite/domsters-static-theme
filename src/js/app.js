@@ -1,10 +1,4 @@
 // 3rd party libs
-import _ from 'lodash';
-import Fake from 'faker';
-// custom sass
-import '../scss/app.scss';
-// images
-import '../images/logo.gif';
 // fontawesome 5
 // base package
 import fontawesome from '@fortawesome/fontawesome';
@@ -14,8 +8,12 @@ import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter';
 import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
 import faInstagram from '@fortawesome/fontawesome-free-brands/faInstagram';
 
-// add the imported icons to the library
-fontawesome.library.add(faFacebook, faTwitter, faGithub, faInstagram);
+// import _ from 'lodash';
+// import Fake from 'faker';
+// custom sass
+import '../scss/app.scss';
+// images
+import '../images/logo.gif';
 
 // javascript
 import '../js/global';
@@ -24,3 +22,6 @@ import '../js/about';
 import '../js/photos';
 import '../js/live';
 import '../js/contact';
+
+// add the imported icons to the library
+fontawesome.library.add(faFacebook, faTwitter, faGithub, faInstagram);

@@ -1,0 +1,21 @@
+.features {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  &__item {
+    background: $white;
+    padding: 1rem;
+    border: 1px solid $white;
+    text-align: center;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  }
+
+  &__icon {
+    font-size: 5rem;
+  }
+
+  &__content {
+    color: rgba(0,0,0,0.5);
+  }
+}
