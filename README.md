@@ -236,6 +236,11 @@ NameVirtualHost *:80
 * Log in with user: `admin` an pwd: `password`
 * You'll see the WordPress Dashboard
 
+## Make sure to refresh Permalinks
+* Use Dashboard to get to Permalinks and make sure the `post` radio button is selected and click the `save` button
+    - Will update the .htaccess file
+    - Make sure you links are SEO friendly
+
 ### Congrats - WordPress is now installed
 
 ## Backup WordPress
@@ -271,6 +276,59 @@ $ wp db export
 * Now your site should be restored
 * **note** If you are dealing with serialized data you will need to use a more powerful migration solution like `WordMove` or `Desktop Server`
 
-## Download my theme
+## Download my theme `domsters-static-theme`
 * **note** Might be a good idea to create an alias to your theme folder as you'll be accessing it often
+* Make sure you are inside `wp-content/themes/`
 
+`$ git clone https://github.com/kingluddite/domsters-static-theme`
+
+## Install dependencies
+* First change into the cloned theme
+
+`$ cd domsters-static-theme`
+
+`$ yarn install`
+
+* You can use `yarn` or `npm`
+    - npm comes with Node (installed with dotfiles)
+    - yarn can be installed with homebrew (both installed with dotfiles)
+
+## What this theme offers
+* Very basic WordPress theme
+* Will add Browser prefixes automatically
+* Is ready for you to start using Sass
+* Babel to transpile your modern JavaScript into browser friendly JavaScript
+* ESlint to check your javascript errors
+* Will minify and concatenate your JavaScript and Sass files
+* Uses fontawesome 5
+* Uses flexbox CSS (example)
+* Uses Grids CSS (example)
+* Optimizes images
+* Normalize.css
+* Prettier to make sure your JavaScript is formatted nicely
+* Has browsersync working for fast development
+* `JS` and `SCSS` **sourcemaps** so you can easily find where the `js` or `scss` is in your code to update it
+
+## Start MySQL and Apache
+* Use the MAMP console to start MySQL and Apache
+    - They should both have green lights
+    - You will need to enter your password
+
+## Start your theme app
+`$ yarn run production`
+
+* Now you can edit your CSS, JavaScript and PHP and it will update without a page refresh
+* There is one annoying issue and that is [FOUC](https://github.com/erikras/react-redux-universal-hot-example/issues/153)
+    - It does get on my nerves but this will improve was I can figure out how to get browser sync and webpack to play nice together. (stay tuned for updates!)
+
+## Deployment
+* Just make sure you **ftp** the **theme** folder, the **uploads** folder and migrate the database to your production server
+* Your *password* for accessing the WordPress Dashboard should be secure safe as well as the `username` and `password` for the WordPress database
+    - You can also SSH it, use Desktop Server or WordMove
+* Make sure your `wp-config.php` is configured with your production connection info for MySQL
+* No debugger needed for production
+
+## The future
+* The site needs a better design
+* The HTML should be improved
+* BEM should be used in the style naming convention
